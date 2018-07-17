@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<meta charset='utf-8' />
+<title> home page </title>
+<link rel='stylesheet' href='reset.css' />
+<link rel='stylesheet' href='assignment.css' />
+</head>
+<body >
+
+<div id="wrapper">
+
+<header>
+  <h1><img class = 'hd' src="./img/Sketch.png" alt="profile"  />
+  Welcome To Junjin's Page</h1>
+</header>
+
+<nav>
+  <ul>
+    <li><a href="index.html">Home</a></li>
+    <li><a href="myDegree.html">My Degree</a></li>
+    <li><a href="myWork.html">My Work</a></li>
+    <li><a href="aboutMe.html">About Me</a></li>
+    <li><a href="diamond.html">Diamond</a></li>
+  </ul>
+</nav>
+
+<main>
+  
+  <h1>Welcome</h1>
+  <p class='sue'>
+    <img src="./img/myhead.jpg" alt="Me" width = 150px />
+    Hello, I am Junjin. I was a leader in an activity of the sheffield international college. in this activity what we need to do was to hang around in and outside the Sheffield and take photos in order to advert Sheffield and other cities, at the end we also need to make a post and give an introduction about what we had done to other students. At the beginning, nobody wanted to be the leader, maybe they were fear of taking the responsibility. So we
+	<!--dropdown menu-->
+    <span class="dropdown">
+	  <span class = 'flash'>...>></span>
+	  <span class="dropdown-content">
+		<a href='aboutMe.html'>Find out more...</a>
+	  </span>
+	</span>
+  </p>
+  <p class='sue'>Vice-Chancellor Professor Sir Keith Burnett and Sheffield Central MP Paul Blomfield revealed the new name at a site visit to catch up on progress on the construction of the 19,500 square metre building.
+Selected following in depth market research, The Diamond not only reflects the physical attributes of the building with its distinctive diamond shape ‘wrap’, but also the quality of the space and facilities which will be on offer.
+Scheduled to open by September 2015, work is already well underway on the six-storey building which, as well as providing specialist engineering teaching facilities, will also house a range of lecture theatres, seminar rooms, open-plan learning spaces, library services and social spaces, including a café.
+  	<span class="dropdown">
+	  <span class = 'flash'>...>></span>
+	  <span class="dropdown-content">
+		<a href='diamond.html'>Find out more...</a>
+	  </span>
+	</span></p>
+  <p class='pan'> My favorite game is GTA san andreas.
+  <br> The Ballas. As Tenpenny and Pulaski drive off, a scene shows three Balla members in an alleyway. One of them states that Grove Street Families will soon be over, while the Balla in the black jacket expresses concern on whether or not they can trust one of the betraying members of Grove Street, worrying that it may be a trap. The other Balla member says that things change and money changes people.
+  <br> Big Smoke and Ryder. The next scene shows Grove Street members Big Smoke and Ryder talking in the kitchen of Ryder's house. Smoke tries to get Ryder on board while Ryder says that he needs to be in charge of his destiny. Smoke states that he has Ryder's back and that they have no choice and have nothing to feel bad about. Ryder accepts Smoke's offer.
+  <br> Mike Toreno and T-Bone Mendez. The next scene is in San Fierro which shows a man named Mendez brutally assaulting an unnamed gang member, which is stopped by another man named Toreno. Toreno tells Mendez that he has found a buyer down in Los Santos. Toreno then receives a phone call while Mendez continues to beat the unnamed gang member to death against a shipping container for snitching. Toreno tells Mendez that they need to be more productive and that he has a connection in Panama that can supply them with as much product as they need. Both men leave the scene as Mendez drags the body of the gang member away.
+  </p>
+</main>
+
+<footer>
+   <ul>
+   <li><a href="accessibility.html" style="font-size: 16px;"}>Accessibility</a></li>
+   <li>&copy; Junjin Chen, 2015</li>
+   <li><a href="contactMe.html" style="font-size: 16px;">Contact Me</li></ul>
+</footer>
+
+</div> <!-- wrapper -->
+
+</body>
+
+</html>
+

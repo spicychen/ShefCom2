@@ -1,0 +1,43 @@
+{-
+a) addBook: may add the same id to the library
+   addReader: may add the same readerId to the library
+   addLoan: may be able to loan when it is not meant to
+   delBook: empty library
+   delReader: empty library
+   delLoan: empty library
+-}
+
+--b)
+ADT: Library
+
+SORTS: Book, Reader, Loan, ErrBook, ErrReader, ErrLoan
+
+SYNTAX
+  newLib : Library
+  getBooks : Library -> [Book]
+  getReaders : Library -> [Reader]
+  getLoans : Library -> [Loan]
+  addBook : Library -> Book -> (Library U ErrBook)
+  addReader : Library -> Reader -> (Library U ErrReader)
+  addLoan : Library ->Book->Reader-> (Library U ErrLoan)
+  delBook : Library -> Book -> (Library U ErrBook)
+  delReader : Library -> Reader -> (Library U ErrReader)
+  delLoan : Library -> Book -> Reader -> (Library U ErrLoan)
+  
+  
+{-c)
+Book: book id and name of a book in a library
+Reader: reader id
+Loan: combination of reader id and book id
+ErrBook: string error message when book has problem
+ErrReader: ~
+ErrLoan: ~
+-}
+
+{-d)
+constructors:
+newLib
+addBook
+addReader
+addLoan
+-}

@@ -1,0 +1,6 @@
+public class Genre {
+	enum Genre {ACTION, COMEDY, DRAMA, DOCUMENTORY, SCIENCE_FICTION};
+	public String toStr() {
+		return Genre
+	public static void main(String[]args){
+		

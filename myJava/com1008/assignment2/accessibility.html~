@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<meta charset='utf-8' />
+<title> home page </title>
+<link rel='stylesheet' href='reset.css' />
+<link rel='stylesheet' href='assignment.css' />
+<script type="text/javascript" src='access.js'></script>
+</head>
+<body onload="clickkey()">
+
+<div id="wrapper">
+
+<header>
+  <h1><img class = 'hd' src="./img/Sketch.png" alt="profile"  />
+  Welcome To Junjin's Page</h1>
+</header>
+
+<nav>
+  <ul>
+    <li><a href="index.html">Home</a></li>
+    <li><a href="myDegree.html">My Degree</a></li>
+    <li><a href="myWork.html">My Work</a></li>
+    <li><a href="aboutMe.html">About Me</a></li>
+    <li><a href="diamond.html">Diamond</a></li>
+  </ul>
+</nav>
+
+<main>
+<p>Access keys (or accesskeys) are a method of letting people move quickly to regularly used parts of a web site without the use of a mouse.
+<br>
+The way to access these depends upon the web browser you are using.
+<br>
+List of browsers and access keys on Wikipedia: https://en.wikipedia.org/wiki/Access_key#Access_in_different_browsers</p>
+<br>
+
+<p>Access key 1 <a id="k1" href="index.html">To Home</a></p>
+<p>Access key 2 <a id="k2" href="myDgree.html">To My Degree</a></p>
+<p>Access key 3 <a id="k3" href="myWork.html">To My Work</a></p>
+<p>Access key 4 <a id="k4" href="aboutMe.html">To About Me</a></p>
+<p>Access key 5 <a id="k5" href="diamond.html">To Diamond</a></p>
+<p>Access key 6 <a id="k6" href="accessibility.html">To Accessibility</a></p>
+<p>Access key 7 <a id="k7" href="contactMe.html">To Contact Me</a></p>
+  <br>
+  
+  <h1>Web Site Accessibility Statement</h1>
+  
+  It is not accessible to people around the world, because it is a local website.<br>
+  When it is published, all people will be able to access this web site. However, it is not accessible to blinds. People with dislexia may be diffcult to understand the words.<br>
+  I will make some improve to the web for this in the future.<br>
+</main>
+
+<footer>
+   <ul>
+   <li><a href="accessibility.html" style="font-size: 16px;"}>Accessibility</a></li>
+   <li>&copy; Junjin Chen, 2015</li>
+   <li><a href="contactMe.html" style="font-size: 16px;">Contact Me</li></ul>
+</footer>
+
+</div> <!-- wrapper -->
+
+</body>
+
+</html>
+

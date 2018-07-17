@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <title>JavaScript example</title>
+  <meta name="author" content="Steve Maddock" />
+</head>
+
+<body>
+
+  <p>Javascript exercise 2</p>
+
+  <script>
+    function getRadius() {
+      return parseFloat(prompt("radius? "));  
+    }
+    
+    function calcArea(r) {
+      return Math.PI*r*r;
+    }
+    
+    function calcCircumference(r) {
+      return 2*Math.PI*r;
+    }
+    
+    // main part of program 
+    var radius = getRadius();
+    
+    document.write("<p>area = " + calcArea(radius) + "</\p>");
+    document.write("<p>circumference = " + calcCircumference(radius) + "</\p>");
+  </script>
+
+</body>
+</html>

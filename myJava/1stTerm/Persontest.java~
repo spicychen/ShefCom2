@@ -1,0 +1,9 @@
+public class Persontest {
+	private String name;
+	public Person(String n) {
+		name = n;
+	}
+	public static void main(String[]args){
+		Person[] person = new Person[5];
+	}
+}

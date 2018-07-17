@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <title>JavaScript example</title>
+  <meta name="author" content="Steve Maddock" />
+</head>
+
+<body>
+
+  <p>Javascript exercise 4</p>
+
+  <script>
+    document.write("<p>As a paragraph, with comma-separated lists:<\/p>");
+    document.write("<p>x, x&sup2;, x&sup3;<br \/>");
+    for (var i=1; i<=10; i++) {
+      document.write(i);
+      document.write(", ");
+      document.write(i*i);
+      document.write(", ");
+      document.write(i*i*i);
+      document.write("<br \/>");
+    }
+    document.write("<\/p>");
+  </script>
+
+  <script>
+    document.write("<p>As a table, but needs styles to make table look better<\/p>");
+    document.write("<table>");
+    document.write("<tr><th>x<\/th><th>x&sup2;<\/th><th>x&sup3;<\/th></\tr>");
+    for (var i=1; i<=10; i++) {
+      document.write("<tr>");
+      document.write("<td>");
+      document.write(i);
+      document.write("<\/td>");
+      document.write("<td>");
+      document.write(i*i);
+      document.write("<\/td>");
+      document.write("<td>");
+      document.write(i*i*i);
+      document.write("<\/td>");
+      document.write("<\/tr>");
+    }
+    document.write("<\/table>");
+  </script>
+
+</body>
+</html>

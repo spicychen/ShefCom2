@@ -1,0 +1,54 @@
+img {
+	padding: 0 20px 20px 20px;
+	width:60px;
+	float: left;
+}
+header {
+	padding: 20px 0px 40px 77px;
+	background-color: orange;
+}
+
+header h1 {
+	padding: 10px 0 10px 0;
+	  color: purple;
+	  font-family: Papyrus, serif;
+	  font-size: 200%;
+	  line-height: 1em;
+}
+nav {
+	  background-color: green;
+	  font-size: 110%;
+	  line-height: 1.5em;
+}
+
+nav ul { 
+	padding: 5px 77px;
+	list-style: none;
+	text-align: center;
+}
+nav ul li {
+	  display: inline;
+	  padding-right: 40px;
+}
+a:visited { color: orange;}
+main {
+	padding: 10px 77px 10px 77px;
+	margin: 100px 0;
+	border-top: 1px solid gray;
+}
+
+main p{
+	width: 500px;
+	position:static;
+	margin: 20px auto;
+	padding: 10px auto;
+	border: 1px solid gray;
+	float: left;
+}
+footer {
+clear: both;
+font-size: 75%;
+text-align: center;
+border-top: 1px solid gray;
+padding: 3px 10px;
+}

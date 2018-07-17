@@ -1,0 +1,32 @@
+img {
+	padding: 0 20px 20px 20px;
+	width:60px;
+	float: left;
+}
+header {
+  padding: 20px 0px 40px 77px;
+  background-color: orange;
+}
+
+header h1 {
+  padding: 10px 0 10px 0;
+  color: purple;
+  font-family: Papyrus, serif;
+  font-size: 200%;
+  line-height: 1em;
+}
+nav {
+  background-color: #eeeedd;
+  color: gray;
+  font-size: 110%;
+  line-height: 1.5em;
+}
+
+nav ul {  
+  padding: 5px 77px;
+  list-style: none;
+}
+nav ul li {
+  display: inline;
+  padding-right: 24px;
+}

@@ -1,0 +1,12 @@
+h1{
+	background-color: orange;
+	color: blue;
+	font-family: "Lydian MT", Futura, Georgia, serif;
+	font-size: 24px; /* twice the font-size of the body element */
+}
+p {
+ color: #5A0000;
+}
+.b {
+	font-size: 90px;
+}

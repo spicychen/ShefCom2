@@ -1,0 +1,11 @@
+package uk.ac.sheffield.com1003.problemsheet2;
+
+public class TestBasket {
+	public static void main(String[]args){
+		Item[] shopping = {new Item("bananas", 0.7),
+				new ItemByWeight("bananas", 0.7, 0.0)
+		};
+
+	}
+
+}

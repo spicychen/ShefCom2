@@ -1,0 +1,267 @@
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+/* ~~~general tags~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+
+body {
+	background-image: url(./img/bgr.jpg);
+  margin-top: 10px;
+  margin-bottom: 10px;
+  color: darkgreen; 
+  font-family: Calibri, sans-serif;
+  line-height: 150%;
+  text-align: justify;
+}
+
+.hd {
+	border-radius: 60%;
+	border: 1px dashed lightgreen;
+	height:80px;
+	float:left;
+}
+h1{
+  color: blue; 
+}
+
+h1 {  
+  font-size: 120%;
+}
+
+h2 {
+	color: darkorange;
+	font-family: Papyrus, serif;
+  font-size: 200%;
+  padding:10px;
+}
+
+.pic {
+width:300px;
+float:right;
+clear:right;
+padding: 10px;}
+.sue {
+	float: left;
+	width: 268px;
+	height: 520px;
+	padding: 15px;
+	border: 2px solid gray;
+}
+.pan {
+	clear: left;
+}
+span .flash {
+  transition: background-color linear 1s;
+  background: lightblue;
+}
+span.flash:hover {
+  background-color: red;
+  transition-duration: 2s; /* applies to the transition *to* the :hover state */
+}
+.dropdown {
+    position: relative;
+}
+
+.dropdown-content {
+	font-size: 15px;
+    display: none;
+    position: absolute;
+    background-color: yellow;
+    min-width: 100px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    padding: 5px 5px;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+
+.main {
+	font-family:"Times New Roman", Times, serif;
+	padding: 10px 77px 150px 77px;
+  background-color: white;
+}
+
+p {
+}
+
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+/* ~~~wrapper~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+
+#wrapper {
+  width: 758px;
+  margin: 0px auto;
+  background-color: inherit;
+}
+
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+/* ~~~header~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+
+header {
+	background-image: url(./img/hdbgr.jpg);
+  padding: 2px 0px 2px 77px;
+  height:100px;
+}
+
+header h1 {
+  padding: 10px 0 10px 0;
+  color: white;
+  font-family: Papyrus, serif;
+  font-size: 300%;
+  line-height: 1em;
+}
+
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+/* ~~~navigation~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+
+nav {
+  background-color: #eeeedd;
+  color: gray;
+  font-size: 110%;
+  line-height: 1.5em;
+}
+
+nav ul {  
+  padding: 5px 77px;
+  list-style: none;
+}
+
+nav ul li {
+  display: inline;
+  padding-right: 24px;
+}
+
+nav a {
+  text-decoration: none;
+  outline: none;
+}
+
+nav a:link { color: purple; }
+
+nav a:visited { color: purple; }
+
+nav a:hover { 
+  color: orange;
+}
+
+
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+/* ~~~main content~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+
+main {
+	font-family:"Times New Roman", Times, serif;
+	padding: 10px 77px 10px 77px;
+  background-color: white;
+	opacity: 0.8;
+}
+
+
+table { 
+  margin: 20px 0;
+}
+
+th {
+  color: darkorange;
+}
+
+table th, table td {
+  padding-left: 12px;
+}
+
+table tr th:nth-child(1), table tr td:nth-child(1) {
+  padding-left: 0;
+}
+
+main *.highlight {
+  font-weight: bolder; 
+}
+
+main article {
+  margin: 20px 0;
+  border-top: 1px solid rgb(200,200,200);
+}
+
+main figure img {
+  width: 100px;
+}
+
+main figure {
+  float: right;
+  margin: 10px 0 10px 20px;
+  border: 1px solid gray;
+}
+
+main figcaption {
+  text-align: center;
+}
+
+.pullquote {
+  float: right;
+  width: 180px;
+  margin: 0 0 0 20px;
+  padding: 0 10px;
+  background-color: rgb(230,230,250);
+  font-size: 30px;
+  line-height: 0.85;
+}
+
+blockquote {
+  margin: 0;
+}
+
+.pullquote p:first-letter {
+  font-size: 80px;
+  font-weight: bold;
+}
+
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+/* ~~~page specific styles~~~~~~~~~~~~~~~~~~~~~~~~ */
+
+table#fixturestable { 
+  margin-left: 77px; 
+}
+
+table#fixturestable tr th:nth-child(1), table#fixturestable tr td:nth-child(1) {
+  text-align: left;
+}
+
+table#fixturestable tr th:nth-child(2), table#fixturestable tr td:nth-child(2) {
+  text-align: right;
+}
+
+table#fixturestable tr th:nth-child(3), table#fixturestable tr td:nth-child(3) {
+  text-align: center;
+}
+
+table#fixturestable tr th:nth-child(4), table#fixturestable tr td:nth-child(4) {
+  text-align: left;
+}
+
+table#aboutustable  tr  td:first-child {
+  color: purple;
+}
+
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+/* ~~~footer~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+
+footer {
+  clear: both;
+  font-size: 75%;
+  text-align: center;
+  border-top: 1px solid gray;
+  padding: 3px 10px;
+  background-color: yellow;
+  opacity: 0.8;
+}
+footer ul li{
+  display:inline;
+  padding-right: 20px
+}
+
+.italic {
+  font-style: italic;
+}
+
+
+canvas {
+    background-color: brown;
+}
+/* ~~~end~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/

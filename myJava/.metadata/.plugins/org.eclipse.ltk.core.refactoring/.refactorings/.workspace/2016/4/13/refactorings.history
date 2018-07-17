@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Move 0 elements to &apos;2ndTerm/src/WordLatticeAssignment16&apos;&#x0D;&#x0A;- Destination element: &apos;2ndTerm/src/WordLatticeAssignment16&apos;" description="Move compilation units" destination="=2ndTerm/src&lt;WordLatticeAssignment16" files="0" flags="589830" folders="0" id="org.eclipse.jdt.ui.move" patterns="*" policy="org.eclipse.jdt.ui.moveResources" qualified="false" references="false" stamp="1459598413078" units="0" version="1.0"/>
+</session>

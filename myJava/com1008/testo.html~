@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title> a test </title>
+<link rel="stylesheet" href="ts.css" />
+<script src="ts.js"></script>
+</head>
+<body>
+<h1>some title</h1>
+<p class = 'init' id = 'some'> some text </p>
+<p> some text2 <button name = 'reveal' id = 'reveal'>Reveal</button></p>
+<p class = 'u'> some text3 </p>
+</body>
+</html>

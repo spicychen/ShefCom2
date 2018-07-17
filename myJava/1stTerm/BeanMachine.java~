@@ -1,0 +1,32 @@
+import sheffield.*;
+
+public class BeanMachine {
+	public static void main(String[]args){
+		EasyReader keyboard = new EasyReader();
+		int numOfBean = keyboard.readInt("Please enter the number of Balls:");
+		int numOfBuckets = keyboard.readInt("Please enter the number of Buckets:");
+		int[] Buckets = new int[numOfBuckets];
+		System.out.println("Path taken by each ball:");
+		while (numOfBean != 0){
+			int path = 0;
+			int chance = numOfBuckets-1;
+			while(chance != 0){
+				double c = 2*Math.random();
+				path = path + (int)c;
+				if ((int)c == 0)
+					System.out.print('L');
+				else
+					System.out.print('R');
+				chance -= 1;
+			}
+			System.out.println("");
+			Buckets[path] += 1;
+			for(int k =0; k<path; k++)
+				System.out.print(' ');
+			System.out.println('*');
+			numOfBean--;
+		}
+		for (int i = 0; i < numOfBuckets; i++)
+			System.out.println(Buckets[i]);
+	}
+}

@@ -1,0 +1,14 @@
+import sheffield.*;
+public class Exercise6b{
+	public static void main(String[]args){
+		EasyReader file = new EasyReader("ex6Bdata.txt");
+		int[] numbers = new int[1000];
+		for(int x=0;x<1000;x++){
+			numbers[x]= file.readInt();
+			switch (numbers[x]){
+			case 1: int value1++, break;	case 2: int value2++, break;
+			case 3: int value3++, break;	default: int value4++;
+		}
+		System.out.println(value1);
+	}
+}

@@ -1,0 +1,178 @@
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+/* ~~~general tags~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+
+body { 
+  margin-top: 10px;
+  margin-bottom: 10px;
+  background-color: white;
+  color: gray; 
+  font-family: Calibri, sans-serif;
+  line-height: 150%;
+  text-align: justify;
+}
+
+h1, h2 {
+  color: purple; 
+}
+
+h1 {  
+  font-size: 120%;
+}
+
+h2 {
+  font-size: 100%;
+}
+
+p {
+   margin-bottom: 0.5em;
+}
+
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+/* ~~~wrapper~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+
+#wrapper {
+  width: 758px;
+  margin: 0px auto;
+  border: 1px gray solid;
+  background-color: inherit;
+}
+
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+/* ~~~header~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+
+header {
+  padding: 2px 0px 2px 77px;
+  background-color: orange;
+}
+
+header h1 {
+  padding: 10px 0 10px 0;
+  color: purple;
+  font-family: Papyrus, serif;
+  font-size: 200%;
+  line-height: 1em;
+}
+
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+/* ~~~navigation~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+
+nav {
+  background-color: #eeeedd;
+  color: gray;
+  font-size: 110%;
+  line-height: 1.5em;
+}
+
+nav ul {  
+  padding: 5px 77px;
+  list-style: none;
+}
+
+nav ul li {
+  display: inline;
+  padding-right: 24px;
+}
+
+nav a {
+  text-decoration: none;
+  outline: none;
+}
+
+nav a:link { color: purple; }
+
+nav a:visited { color: purple; }
+
+nav a:hover { 
+  color: orange;
+}
+
+
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+/* ~~~main content~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+
+main {
+  padding: 10px 77px 10px 77px;
+}
+
+table { 
+  margin: 20px 0;
+}
+
+th {
+  color: purple;
+}
+
+table th, table td {
+  padding-left: 12px;
+}
+
+table tr th:nth-child(1), table tr td:nth-child(1) {
+  padding-left: 0;
+}
+
+main *.highlight {
+  font-weight: bolder; 
+}
+
+main article {
+  margin: 20px 0;
+  border-top: 1px solid rgb(200,200,200);
+}
+
+main figure img {
+  width: 100px;
+}
+
+main figure {
+  float: right;
+  margin: 10px 0 10px 20px;
+  border: 1px solid gray;
+}
+
+main figcaption {
+  text-align: center;
+}
+
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+/* ~~~page specific styles~~~~~~~~~~~~~~~~~~~~~~~~ */
+
+table#fixturestable { 
+  margin-left: 77px; 
+}
+
+table#fixturestable tr th:nth-child(1), table#fixturestable tr td:nth-child(1) {
+  text-align: left;
+}
+
+table#fixturestable tr th:nth-child(2), table#fixturestable tr td:nth-child(2) {
+  text-align: right;
+}
+
+table#fixturestable tr th:nth-child(3), table#fixturestable tr td:nth-child(3) {
+  text-align: center;
+}
+
+table#fixturestable tr th:nth-child(4), table#fixturestable tr td:nth-child(4) {
+  text-align: left;
+}
+
+table#aboutustable  tr  td:first-child {
+  color: purple;
+}
+
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+/* ~~~footer~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+
+footer {
+  clear: both;
+  font-size: 75%;
+  text-align: center;
+  border-top: 1px solid gray;
+  padding: 3px 10px;
+}
+
+.italic {
+  font-style: italic;
+}
+
+/* ~~~end~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/

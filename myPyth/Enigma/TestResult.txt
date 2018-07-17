@@ -1,0 +1,127 @@
+---------------------------------------------------
+Name: Junjin Chen
+Username: acc15jc
+---------------------------------------------------
+Task 1: Data Structure Cipher
+
+--load file
+*Enigma> :load "enigma.hs"
+[1 of 2] Compiling AssignmentHelp   ( AssignmentHelp.hs, interpreted )
+[2 of 2] Compiling Enigma           ( enigma.hs, interpreted )
+Ok, modules loaded: Enigma, AssignmentHelp.
+
+*Enigma> cipher
+"QWERTYUIOPASDFGHJKLZXCVBNM"
+
+---------------------------------------------------
+Task 2: validateCipher
+
+--a valid cipher
+*Enigma> validateCipher "QWERTYUIOPASDFGHJKLZXCVBNM"
+True
+
+--not enough length
+*Enigma> validateCipher "QWERTYUIOP"
+False
+
+--same characters inside
+*Enigma> validateCipher "QWERTYUIOPASDFGHJJJJJJJJJJ"
+False
+
+--invalid symbols other than English letters inside
+*Enigma> validateCipher "QWERTYUIOPASDFGHJKLZX+_)(*"
+False
+
+---------------------------------------------------
+Task 3: encode
+
+--encode letter 'T' using the cipher created in task 1, offset 9
+*Enigma> encode 'T' "QWERTYUIOPASDFGHJKLZXCVBNM" 9
+'A'
+
+--offset is a large number (edge of the range), cost less than 1s to get the output (in my slow computer)
+*Enigma> encode 'T' "QWERTYUIOPASDFGHJKLZXCVBNM" 2147483647
+'V'
+
+--offset is a negative number
+*Enigma> encode 'T' "QWERTYUIOPASDFGHJKLZXCVBNM" (-2147483647)
+'J'
+
+--encode with invalid cipher
+*Enigma> encode 'T' "QWERTYUIOPASDFGHJKLZX+_)(*" 9
+*** Exception: Not Valid Cipher
+CallStack (from HasCallStack):
+  error, called at enigma.hs:46:31 in main:Enigma
+
+--encode a poor case letter
+*Enigma> encode 'u' "QWERTYUIOPASDFGHJKLZXCVBNM" 9
+*** Exception: Could Only Encode Uppercase Letters!
+CallStack (from HasCallStack):
+  error, called at enigma.hs:53:15 in main:Enigma
+
+---------------------------------------------------
+Task 4: encodeMessage
+
+--encode a valid message
+*Enigma> encodeMessage "WINTERISCOMMING" cipher (-273)
+"PCQUKTCYHWMMCQZ"
+
+--encode a message with space
+*Enigma> encodeMessage "WINTER IS COMMING" cipher (-273)
+"PCQUKT*** Exception: Could Only Encode Uppercase Letters!
+CallStack (from HasCallStack):
+  error, called at enigma.hs:53:15 in main:Enigma
+
+---------------------------------------------------
+Task 5: reverseEncode and reverseEncodeMessage
+
+--reverse encode a character
+*Enigma> reverseEncode 'J' "QWERTYUIOPASDFGHJKLZXCVBNM" (-2147483647)
+'T'
+
+--reverse encode a message
+*Enigma> reverseEncodeMessage "PCQUKTCYHWMMCQZ" cipher (-273)
+"WINTERISCOMMING"
+
+---------------------------------------------------
+Task 6: letterStats
+
+--shows the letter states of a string, remove all states with 0 percentage
+*Enigma> letterStats "STDDWSD"
+[('D',43),('S',29),('W',14),('T',14)]
+
+--shows the letter states of a long string
+*Enigma> letterStats mystery
+[('W',13),('J',12),('F',10),('A',10),('Q',7),('X',6),('Y',5),('C',5),('N',4),('M',4),('E',4),('V',3),('P',3),('D',3),('B',3),('Z',2),('R',2),('H',2),('U',1),('T',1),('S',1),('L',1),('K',1)]
+
+--when the string contains lower case letter
+*Enigma> letterStats "STDDWSsdllg"
+*** Exception: message must only contain upper case letters
+CallStack (from HasCallStack):
+  error, called at enigma.hs:140:29 in main:Enigma
+
+---------------------------------------------------
+Task 7: partialDecode
+
+--partially decode a message with guesses
+*Enigma> partialDecode [('X', 'e'), ('W', 's')] "DXPWXW"
+"DePses"
+
+--when the guesses is not valid (should be [(UPPERCASE,lowercase),...])
+*Enigma> partialDecode [('X', 'E'), ('W', 's')] "DXPWXW"
+"*** Exception: Guesses is invalid
+CallStack (from HasCallStack):
+  error, called at enigma.hs:189:29 in main:Enigma
+
+--when there is lower case letter in the message
+*Enigma> partialDecode [('X', 'e'), ('W', 's')] "DXPwxw"
+"*** Exception: message must only contain upper case letters
+CallStack (from HasCallStack):
+  error, called at enigma.hs:190:29 in main:Enigma
+
+---------------------------------------------------
+Task 8: decode mystery
+
+--had tried many guesses, still failed to decode this message
+*Enigma> partialDecode (makeGuesses mystery) mystery
+"itaenaRtoBEenZnaDBatitDtiohLiVseEVEoKiHeHRoDsnKenNohMehoDMsPeaanMeatoVNetaPnZetsiaohenNittNeBitNohMeEatoVoZitasoDNHBetseEiMstaoEtoTaiUehoSatoVPnRBehotNetaihLEenaetsePeaanMeNehMtsnBitPoEeatoV"

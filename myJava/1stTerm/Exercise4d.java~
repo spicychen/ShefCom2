@@ -1,0 +1,17 @@
+import sheffield.*;
+public class Exercise4d {
+	public static void main(String args[]) {
+		EasyReader keyboard = new EasyReader();
+		int n = keyboard.readInt(
+			"please enter a number: ");
+		int m = n%2;
+		while ( n != 1 ) {
+			while ( m == 1 )
+				n = n*3+1;
+			while ( m == 0 )
+				n = n/2;
+			System.out.println(m);
+			m = n%2;
+		}
+	}
+}

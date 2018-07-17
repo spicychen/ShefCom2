@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <title>JavaScript examples</title>
+</head>
+
+<body>
+
+  <form name="myform" action="http://www.dcs.shef.ac.uk/cgi-bin/FormMail.pl" method="get">
+
+    <!-- the following line must be included as it is required by the cgi script -->
+    <input type="hidden" name="recipient" value="name@sheffield.ac.uk" />
+
+	  <!-- full details at: http://www.scriptarchive.com/formmail.html -->
+    <input type="hidden" name="subject" value="Test Form" />
+
+	  <p>
+      <label for="from">Your name: <input type="text" name="from" id="from"
+             maxlength="40" size="20" placeholder="type your name..."  required />
+    </p>
+	
+	  <p>
+      <label for="comments">Your comments:</label>
+      <textarea name="comments" id="comments" placeholder="type your comments..." rows="5" cols="50"></textarea>
+    </p>
+    
+    <!-- must have one button of type 'submit' in order to send the form to the cgi script -->
+    <p>
+      <input type="submit" name="submit" id="submit" value="Submit" />
+      <input type="reset" />
+    </p>
+
+</form>
+
+</body>
+</html>

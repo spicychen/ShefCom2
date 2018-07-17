@@ -1,0 +1,7 @@
+Description about my study
+English: My English is good, able to talk to a native English normally. I know a lot of vocabulary in the field of computer science.
+Math: Before the university, I got some general idea about the world. I am especially good at math, for which I have been keeping a good grade since I was in my primary school. In the Computer Science department, I study a lot about the logic, now I am very confident about this field.
+Programming languages: Although I had never use java before I went to the university, in the 1st year, I had practice a lot of java. Being through some difficult assignment, for example, coding a robot and making it follow a certain path to the destination, making an app that deal with the data of weather read from a website and display it using the GUI. Now I have knowledge about Inheritance and Polymorphism of java class, jUnit testing, IOException, multithreading and etc. I also learned other languages such as Ruby, C++, PHP (and Html, CSS, JavaScript). With Ruby, I wrote a Sokoban game, my classmates and I as a group, made a website for a restaurant which had a food-information managing system, a user system and enabled the user to ordering foods by sending tweets. I am also writing a website on me own, using the PHP, in which I made a snake game and other stuff, and I am planning to make more games publish my website and share the games with others.
+AI: I am quite good at AI, though I am not good at the history.
+Software Engineering: 
+Theory of Computer Science:

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <title>JavaScript examples</title>
+</head>
+
+<body>
+
+  <script>
+
+    var data = [];
+    var number;
+
+    for (var i=0; i<10; ++i) {
+      number = Math.random()*10;
+      //console.log('<p>'+number+'</p>'); // testing
+      data.push(number)
+    }
+
+    document.write('<p>'+data+'</p>');
+    for (var j=0; j<data.length; j++) {
+      document.write(data[j].toFixed(2)+"&nbsp;&nbsp;&nbsp;");
+    }
+
+    document.write('<p>');
+    for (var j=0; j<data.length; j++) {
+      var value = Math.floor(data[j]); // remove fractional part
+      document.write(value+': ');
+      for (var k=0; k<value; k++) {
+        document.write('*');
+      }
+      document.write('<br />');
+    }
+    document.write('</p>');
+  
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <title>JavaScript example</title>
+  <meta name="author" content="Steve Maddock" />
+</head>
+
+<body>
+
+  <p>Javascript exercise 5</p>
+
+  <script>
+    // constants and variables
+    
+    const MAX_VALUE = 20;
+    const NUM_ITEMS = 10
+    var data = [];
+    
+    // functions
+    function fillArray(data) {  
+      for (var i=0; i<NUM_ITEMS; i++) {
+        var number = Math.random()*MAX_VALUE;
+        data.push(number);
+      }
+    }  
+
+    function displayArray(data) {
+      for (var i=0; i<data.length; i++) {
+        document.write(data[i].toFixed(2) + "&nbsp;&nbsp;");
+      }
+    }
+  
+    // main body of program
+    fillArray(data);
+    displayArray(data);
+    document.write("<br>");
+    for (var i=0; i<data.length; i++) {
+      if (data[i] > 10) {
+        document.write(i + ": " + data[i].toFixed(2) + "<br>");
+      }
+    }
+    
+  </script>
+
+</body>
+</html>

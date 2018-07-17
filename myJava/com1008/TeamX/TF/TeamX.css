@@ -1,0 +1,53 @@
+p {
+	color: teal;
+	font-family: "Lydian MT", Futura, Georgia, serif;
+	font-size: 2em; /* twice the font-size of the body element */
+}
+figure {
+	float:left;
+	border: solid 5px black;
+	margin-right: 30px;
+	padding: 20px;
+}
+figcaption {
+	text-align: center;
+}
+ul {
+	padding-left: 100px;
+	list-style-type: circle;
+}
+li {
+	color:#654321;
+}
+nav ul{
+	list-style:none;
+	padding:5px 0px;
+	text-align:center;
+}
+nav ul li{
+	display: inline;
+}
+.foo {
+	font-size:20px;
+	color:red;
+}
+.brown {
+	color:brown;
+}
+#foo {
+	font-family: Papyrus, serif;
+	font-size:40px;
+	color:orange;
+}
+.wrapper{
+	width: 500;
+	margin:0 auto;
+}
+a:link 
+{ color: red; }
+a:visited 
+{ color: orange; }
+footer {
+	border-top: dashed 1px red;
+	text-align:center;
+}

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <title>JavaScript example</title>
+  <meta name="author" content="Steve Maddock" />
+</head>
+
+<body>
+
+  <p>Javascript exercise 5</p>
+
+  <div id="results"></div>
+  
+  <script>
+    // constants and variables
+    
+    const MAX_VALUE = 10;
+    const NUM_ITEMS = 10
+    var data = [];
+    
+    // functions
+    function fillArray(data) {  
+      for (var i=0; i<NUM_ITEMS; i++) {
+        var number = Math.random()*MAX_VALUE;
+        data.push(number);
+      }
+    }  
+
+    function displayArray(data) {
+      console.log(data);
+    }
+  
+    // main body of program
+    fillArray(data);
+    displayArray(data);
+    
+    var str = "<table>";
+    str += "<tr><th>number</th><th>floor</th><th>round</th><th>ceil</th></tr>";
+    for (var i=0; i<data.length; i++) {
+      str += "<tr>"
+      str += ("<td>" + (data[i].toFixed(2)) + "</td>");
+      str += ("<td>" + Math.floor(data[i]) + "</td>");
+      str += ("<td>" + Math.round(data[i]) + "</td>");
+      str += ("<td>" + Math.ceil(data[i]) + "</td>");
+      str += "</tr>";
+    }
+    str += "</table>";
+    
+    console.log(document.getElementById('results'));
+    document.getElementById('results').innerHTML = str;
+  </script>
+
+</body>
+</html>

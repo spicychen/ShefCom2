@@ -1,0 +1,31 @@
+package uk.ac.sheffield.com1003.problemsheet2;
+
+import org.junit.*;
+
+
+import static org.junit.Assert.*;
+
+public class TestItemPoly {
+	Item[] shoppingList;
+
+
+	@Before
+	public void setup() {
+		shoppingList[0] = new Item("SENSATIONS", 1.00);
+		shoppingList[1] = new Item("SENSATIONS", 1.00); //testing for identical object
+		
+		shoppingList[2] = new Item("HARIBO", 4.52);
+		shoppingList[3] = new ItemByWeight("HARIBO",  4.52, 0.215); //testing for different classes
+		
+		shoppingList[4] = new Item("COLA", 0.55);
+		shoppingList[5] = new ItemByWeight("Double Chocolate SWISS ROLL", 4.35, 0.230); //testing for reference copy			
+		
+		shoppingList[6] = null; //testing for null object
+	}
+	
+	@Test
+	public void testing1(){
+		assertTrue(shoppingList[0].equals(shoppingList[1]));
+	}
+	
+}

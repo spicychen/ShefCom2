@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang='en'>
+	<head>
+		<meta charset='utf-8' />
+		<title> home page </title>
+		<link rel='stylesheet' href='reset.css' />
+		<link rel='stylesheet' href='assignment.css' />
+	</head>
+	
+	<body>
+	
+		<div id="wrapper">
+		
+			<header>
+			  <h1>
+			  <img class = 'hd' src="./img/Sketch.png" alt="profile"  />
+			  Hello!</h1>
+			</header>
+			
+			<nav>
+			  <ul>
+				<li><a href="index.html">Home</a></li>
+				<li><a href="myDegree.html">My Degree</a></li>
+				<li><a href="myWork.html">My Work</a></li>
+				<li><a href="aboutMe.html">About Me</a></li>
+				<li><a href="diamond.html">Diamond</a></li>
+			  </ul>
+			</nav>
+			
+			<main>
+			  
+			  <h1>Personal Detail</h1>
+			  
+			  <figure>
+				<img src="./img/myhead.jpg" alt="Me"  />
+				<figcaption>it's Me</figcaption>
+			  </figure>
+			  
+			  <table>
+				  <tr>
+				  <td>My Name</td>
+				  <th>Junjin Chen</th>
+				  </tr>
+				  <tr>
+				  <td>Date of Birth</td>
+				  <th>02/03/1997</th>
+				  </tr>
+				  <tr>
+				  <td>Nationality</td>
+				  <th>Chinese</th>
+				  </tr>
+				  <tr>
+				  <td>Telephone Number</td>
+				  <th>07340241601</th>
+				  </tr>
+				  <tr>
+				  <td>Personal email address</td>
+				  <th>1099404025@qq.com</th>
+				  </tr>
+				  <tr>
+				  <td>University email address</td>
+				  <th>jchen54@sheffield.ac.uk</th>
+				  </tr>
+				  <tr>
+				  <td>Current address</td>
+				  <th>Studio 528, Vita student, Telephone House, Wellington Street, Sheffield    S11BA</th>
+				  </tr>
+			  </table>
+			  
+			  <h1>Experience</h1>
+			  <br>
+			  	<ul>
+				  	<li>Have made a virtual business in a team of Innovation Lab.
+				<a href='https://www.youtube.com/watch?v=kqZbGdtP0yo&index=1&list=PLRHYpYADEubTg1TqEOFH21C2vknIYcO47'>Video</a>
+					</li>
+					<li>Have made my own website using html, css and javaScript.</li>
+					<li>Have been a volunteer to be filmed (actor) as in Exam Condition.</li>
+					<li>Have been to many place in Sheffield.</li>
+				</ul>
+				<br>
+				
+			  <h1>Personality</h1>
+			  <table>
+				  <tr>
+				  <th>Creative</th>
+				  <td>always get some new ideas, good at creating my own thing</td>
+				  </tr>
+				  <tr>
+				  <th>Active</th>
+				  <td>always want to find some work to do</td>
+				  </tr>
+				  <tr>
+				  <th>Kind</th>
+				  <td>treat others good, if rude, I will apologize</td>
+				  </tr>
+				  <tr>
+				  <th>Humour</th>
+				  <td>sometimes could tell a joke</td>
+				  </tr>
+				  <tr>
+				  <th>Ambitious</th>
+				  <td>always want to be the leader</td>
+				  </tr>
+			  </table>
+			  
+			  <h1>A story</h1>
+			  <p>I was a leader in an activity of the sheffield international college. in this activity what we need to do was to hang around in and outside the Sheffield and take photos in order to advert Sheffield and other cities, at the end we also need to make a post and give an introduction about what we had done to other students. At the beginning, nobody wanted to be the leader, maybe they were fear of taking the responsibility. So we played rock-paper-scissors and determine who should be the leader. Luckily I lost all rounds, so I became the leader. However, I did little things but commanded a lot, the members sometimes obeyed my command but sometimes not. Sometimes they gave me some advise and I chose from one of them. At the end, we made a post, but it looks very bad, because we hadn’t got much time left at the moment. Besides, several members insisted to do in their own way, they didn’t co-operate much. It was my blame as well, because as a leader I didn’t manage the time and rule them well. Luckily, the photos on the post looks good, because everybody come together and had taken a good position.
+			  </p>
+			</main>
+			
+			<footer> 
+			   <ul>
+				  <li><a href="accessibility.html" style="font-size: 16px;"}>Accessibility</a></li>
+			   <li>&copy; Junjin Chen, 2015</li>
+			   <li><a href="contactMe.html" style="font-size: 16px;">Contact Me</li></ul>
+			</footer>
+		
+		</div> <!-- wrapper -->
+		
+	</body>
+
+</html>
+

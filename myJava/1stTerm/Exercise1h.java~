@@ -1,0 +1,5 @@
+public class Exercise1h{
+	public static void main(String[] args) {
+		long m=12;
+		long c=9000;
+		long 

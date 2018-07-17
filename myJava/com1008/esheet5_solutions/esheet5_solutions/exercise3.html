@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <title>JavaScript example</title>
+  <meta name="author" content="Steve Maddock" />
+</head>
+
+<body>
+
+  <p>Javascript exercise 3</p>
+
+  <script>
+    function getAmount(str) {
+      return parseFloat(prompt(str));
+    }
+    
+    function calcInterest(current, rate) {
+      return current*rate/100;
+    }
+    
+    function calcNewAmount(current, rate) {
+      var interest = calcInterest(current, rate);
+      return current + interest;
+    }
+    
+    var initial = getAmount("Initial sum of money?");
+    var desired = getAmount("Desired sum of money?");
+    var rate = getAmount("Annual rate of interest (as a percentage)?");
+
+    document.write("<p>Initial sum of money: &pound;"+initial.toFixed(2));
+    document.write(", Desired sum of money: &pound;"+desired.toFixed(2));
+    document.write(", Annual rate of interest: "+rate+"%<\/p>");
+
+    var current = initial;
+    var year = 0;
+    while (current<desired) {
+      year++;
+      current = calcNewAmount(current, rate);
+      document.write("<p>Year: "+year);
+      document.write(", End of year sum: &pound;"+current.toFixed(2));
+    }
+
+    document.write("<p>It will take "+year+" years to reach the desired amount<\/p>");
+  </script>
+
+</body>
+</html>

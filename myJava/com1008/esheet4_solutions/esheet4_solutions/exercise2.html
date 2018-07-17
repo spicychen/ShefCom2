@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <title>JavaScript example</title>
+  <meta name="author" content="Steve Maddock" />
+</head>
+
+<body>
+
+  <p>Javascript exercise 2</p>
+
+  <script>
+    // assume x <> y
+    var x = parseFloat(prompt("first number?"));  
+    var y = parseFloat(prompt("second number?"));  
+    var smallest, largest;
+    
+    if (x<y) {
+      smallest = x;
+      largest = y;
+    }
+    else {
+      smallest = y;
+      largest = x;
+    }
+    document.write("<p>smallest = "+smallest+"</\p>");
+    document.write("<p>largest = "+largest+"</\p>");
+  </script>
+
+</body>
+</html>

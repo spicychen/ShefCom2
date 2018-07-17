@@ -1,0 +1,72 @@
+.k {height:900px;}
+.myc {
+	border: 10px solid black;
+	border-radius: 15px;
+	width: 500px;
+	float: left;
+	text-align:center;
+    position: relative;
+}
+.menu {
+	margin: 70px 0 0 30px;
+	font-size: 25px;
+    display: none;
+    position: absolute;
+    background-color: white;
+    min-width: 100px;
+}
+.com1001, .com1002, .com1003, .com1005, .com1006, .com1008 {
+	padding-top:15px;
+	border-top: 1px solid blue;
+	font-size: 15px;
+    display: none;
+    position: absolute;
+    background-color: white;
+    min-width: 200px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+}
+.c1, .c2, .c3, .c5, .c6, .c8{
+	float: right;
+	margin-left: 240px;
+	font-size: 15px;
+    display: none;
+    position: absolute;
+    background-color: white;
+    min-width: 500px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    padding: 5px 5px;
+}
+.c1 {border: 10px solid pink;}
+.c2 {border: 10px solid green;}
+.c3 {border: 10px solid purple;}
+.c5 {border: 10px solid red;}
+.c6 {border: 10px solid blue;}
+.c8 {border: 10px solid yellow;}
+.myc:hover {
+	box-shadow: 10px 10px 5px grey;
+}
+.mycs:hover .menu{
+    display: block;
+}
+
+.menu:hover .com1001, .com1002, .com1003, .com1005, .com1006, .com1008{
+    display: inline;
+}
+.com1001:hover .c1{
+    display: inline;
+}
+.com1002:hover .c2{
+    display: inline;
+}
+.com1003:hover .c3{
+    display: inline;
+}
+.com1005:hover .c5{
+    display: inline;
+}
+.com1006:hover .c6{
+    display: inline;
+}
+.com1008:hover .c8{
+    display: inline;
+}

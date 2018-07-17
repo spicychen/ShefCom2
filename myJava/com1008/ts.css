@@ -1,0 +1,6 @@
+p {
+	border: 5px solid blue;
+	padding: 200px;
+}
+.init {	display: none;
+}

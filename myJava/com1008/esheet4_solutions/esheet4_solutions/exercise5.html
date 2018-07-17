@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <title>JavaScript example</title>
+  <meta name="author" content="Steve Maddock" />
+</head>
+
+<body>
+
+  <p>Javascript exercise 5</p>
+
+  <script>
+    var initial = parseFloat(prompt("Initial sum of money?"));
+    var desired = parseFloat(prompt("Desired sum of money?"));
+    var rate = parseFloat(prompt("Annual rate of interest (as a percentage)?"));
+
+    document.write("<p>Initial sum of money: &pound;"+initial.toFixed(2));
+    document.write(", Desired sum of money: &pound;"+desired.toFixed(2));
+    document.write(", Annual rate of interest: "+rate+"%<\/p>");
+
+    var current = initial;
+    var year = 0;
+    while (current<desired) {
+      year++;
+      var interest = current*rate/100;
+      current += interest;
+      document.write("<p>Year: "+year);
+      document.write(", Interest: &pound;"+interest.toFixed(4));
+      document.write(", End of year sum: &pound;"+current.toFixed(4));
+      // round to nearest whole number of pence
+      current = Math.round(current*100)/100;
+      document.write(", Rounded to nearest pence end of year sum: &pound;"+current.toFixed(2)+"<\/p>");
+    }
+
+    document.write("<p>It will take "+year+" years to reach the desired amount<\/p>");
+
+  </script>
+
+</body>
+</html>

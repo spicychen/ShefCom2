@@ -1,0 +1,28 @@
+
+//    	
+//    	rulenodes.get(0).propagate(fts.get(0));
+//    	System.out.println(rulenodes.get(0).getDeductions().get(0));
+    	while(!factsToPropagate.isEmpty()){
+    		ArrayList<String> fts = factsToPropagate;
+    		ArrayList<String> dedus = new ArrayList<String>();
+    		for(String f: fts){
+    			for(int j=0; j<rulenodes.size();j++){
+    				rulenodes.get(j).propagate(f);
+    				dedus.addAll(rulenodes.get(j).getDeductions());
+//    				System.out.println("hello"+dedus);
+    			}
+    		}
+    		factsToPropagate.removeAll(fts);
+    		factsToPropagate.addAll(dedus);
+    		System.out.println(factsToPropagate);
+//    		fts = factsToPropagate;
+//    		dedus = new ArrayList<String>();
+//    		for(String f: fts){
+////    			factsToPropagate.remove(0);
+//    			for(int j=0; j<rulenodes.size();j++){
+//    				rulenodes.get(j).propagate(f);
+//    				dedus.addAll(rulenodes.get(j).getDeductions());
+////    				System.out.println("hello"+dedus);
+//    			}
+//    		}
+//    		System.out.println(dedus);

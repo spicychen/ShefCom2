@@ -1,0 +1,9 @@
+h1 {
+  color: teal;
+  font-family: "Lydian MT", Futura, Georgia, serif;
+  font-size: 2em; /* twice the font-size of the body element */
+}
+
+p { 
+  color: blue;
+}

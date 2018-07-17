@@ -1,0 +1,27 @@
+import sheffield.*;
+public class Exercise4a {
+	
+	enum Suits { HEARTS, CLUBS, DIAMONDS, Spades };
+	
+	public static void main(String[]args) {
+		EasyReader keyboard = new EasyReader();
+		
+		Suits su = Suits.HEARTS;
+		
+		if	(	keyboard.readBoolean("Do you like a Hearts suit/ Clubs suit? (Y/N)")	)
+			if	(	keyboard.readBoolean("First one?")	)
+				su = Suits.HEARTS;
+			else
+				su = Suits.CLUBS;
+		else
+			if ( keyboard.readBoolean("Do you like a Diamonds suit/ Spades suit? (Y/N)"))
+				if ( keyboard.readBoolean("First one?"))
+					su = Suits.DIAMONDS;
+				else
+					su = Suits.Spades;
+		if ( su == Suits.HEARTS || su == Suits.DIAMONDS )
+			System.out.print("that suit is red");
+		else
+			System.out.println("that suit is black");
+	}
+}

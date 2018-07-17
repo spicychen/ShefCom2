@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<meta charset='utf-8' />
+<title> home page </title>
+<link rel='stylesheet' href='reset.css' />
+<link rel='stylesheet' href='assignment.css' />
+</head>
+<body>
+
+<div id="wrapper">
+
+<header>
+  <h1><img class = 'hd' src="./img/Sketch.png" alt="profile"  />
+  Thanks for your visit!</h1>
+</header>
+
+<nav>
+  <ul>
+    <li><a href="index.html">Home</a></li>
+    <li><a href="myDegree.html">My Degree</a></li>
+    <li><a href="myWork.html">My Work</a></li>
+    <li><a href="aboutMe.html">About Me</a></li>
+    <li><a href="diamond.html">Diamond</a></li>
+  </ul>
+</nav>
+
+<main>
+  
+  <h2>What do you think?</h1>
+  
+
+<form name="myform" action="http://www.dcs.shef.ac.uk/cgi-bin/FormMail.pl" method="get">
+<input type="hidden" name="recipient" value="jchen54@sheffield.ac.uk" />
+<label for="GET-name">Name:</label>
+<input id="GET-name" type="text" name="name" maxlength="40" size="20" placeholder="your name..."/>
+<br>
+<label for="GET-mail">Email:</label>
+<input id="GET-mail" type="text" name="email" maxlength="40" size="20" placeholder="your email..."/>
+<br>
+<p>
+<textarea name = 'comments' rows='5' cols='50' placeholder="add your comments here...">
+</textarea>
+<br>
+<input type="submit" name="submit" id="submit" value="Submit" />
+<input type="reset" />
+</p>
+</form>
+
+</main>
+
+<footer> 
+<ul>
+   <li><a href="accessibility.html" style="font-size: 16px;"}>Accessibility</a></li>
+   <li>&copy; Junjin Chen, 2015</li>
+   <li><a href="contactMe.html" style="font-size: 16px;">Contact Me</li></ul>
+</footer>
+
+</div> <!-- wrapper -->
+
+</body>
+
+</html>
+

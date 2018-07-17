@@ -1,0 +1,20 @@
+import math
+from hiveminder.utils import *
+from algos.MyNewGardener import flower_num
+cell1 = (3,0)
+cell2 = (3,7)
+
+print(flower_num(2,[2,5,3,5,4,6,6,2,6,3,5,3,3,7,0]))
+#testingset = {'a','b'}
+#example_tuple = [(4,8),(6,5)]
+
+"""board_width = 8
+board_height= 8
+hives = [[4,1,0]]
+flowers = [[6, 1, dict([('launch_probability', 0.2), ('initial_energy', 10), ('dead_bee_score_factor', -3), ('hive_score_factor', 200), ('flower_score_factor', 50), ('nectar_score_factor', 2), ('queen_bee_nectar_threshold', 100), ('bee_nectar_capacity', 5), ('bee_energy_boost_per_nectar', 25), ('flower_seed_visit_initial_threshold', 10), ('flower_seed_visit_subsequent_threshold', 10), ('flower_visit_potency_ratio', 10), ('flower_lifespan', 300), ('flower_lifespan_visit_impact', 10)]), 1, 0, 300]]
+inflight = {'fbfafc6f-2ac9-4e4d-a3a7-e038c06547e6': ['Seed', 3, 2, 0]}
+turn_num = 9
+cmd = {"entity" : 'fbfafc6f-2ac9-4e4d-a3a7-e038c06547e6',
+	"command" : "flower"
+}"""
+#print([1,2][1:])

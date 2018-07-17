@@ -1,0 +1,16 @@
+GEM
+  remote: https://rubygems.org/
+  specs:
+    colorize (0.7.7)
+    console_splash (2.0.1)
+      colorize
+
+PLATFORMS
+  x64-mingw32
+
+DEPENDENCIES
+  colorize
+  console_splash
+
+BUNDLED WITH
+   1.10.6

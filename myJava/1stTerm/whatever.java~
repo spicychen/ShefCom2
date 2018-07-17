@@ -1,0 +1,32 @@
+import sheffield.*;
+public class whatever {
+	
+	enum Answer { YES, NO, MAYBE };
+	
+	public static void main (String [] args) {
+		EasyReader keyboard = new EasyReader();
+
+		Answer rainTomorrow;
+      
+		if  (  keyboard.readBoolean("Will it be dry tomorrow? (Y/N) ")   )
+			if  (   keyboard.readBoolean("Are you sure it won't rain tomorrow? (Y/N) ")  )
+				rainTomorrow = Answer.NO;
+			else
+				rainTomorrow = Answer.MAYBE;
+		else
+			if  (   keyboard.readBoolean("So it will rain tomorrow? (Y/N) ")  )
+				rainTomorrow = Answer.YES;
+			else
+				rainTomorrow = Answer.MAYBE;
+         
+		switch (rainTomorrow) {
+		 	case MAYBE :
+		 	case YES :
+		 		System.out.println("Take an umbrella");   break;
+		 	case NO :
+		 		System.out.println("Take sun screen");
+		}
+         			
+	}
+   
+}

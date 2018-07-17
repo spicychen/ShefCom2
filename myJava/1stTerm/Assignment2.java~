@@ -1,0 +1,22 @@
+import sheffield.*;
+public class Assignment2 {
+	public static void main(String args[]){
+		EasyReader fileInput = new EasyReader("picture.txt");
+		EasyGraphics g = new EasyGraphics(2000,150);
+		g.setColor(128,180,245);
+		g.fillRectangle(0,0,1999,149);
+		char[] trees = new char[45000];
+		for (int n = 0; n<45000; n++)
+			trees[n] = fileInput.readChar();
+		for (int copies = 0; copies < 30; copies++){
+			double position = 200*Math.random()-100;
+			for (int i = 0; i < 45000; i++){
+				if (trees[i] != '0'){
+					g.setColor((trees[i]-48)*10-10,370-(trees[i]-48)*170,0);
+					g.fillRectangle(copies*60 + i%300 + (int)position,149-i/300,1,1);
+				}
+			}
+		}
+	}
+}
+		
