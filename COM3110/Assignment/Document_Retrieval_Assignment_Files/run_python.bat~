@@ -1,0 +1,8 @@
+rem python ir_engine.py -w tfidf -o result.txt
+rem python eval_ir.py -f cacm_gold_std.txt result.txt
+rem python ir_engine.py -s -w tfidf -o result.txt
+rem python eval_ir.py -f cacm_gold_std.txt result.txt
+rem python ir_engine.py -p -w tfidf -o result.txt
+rem python eval_ir.py -f cacm_gold_std.txt result.txt
+python ir_engine.py -s -p -w tfidf -o result.txt
+python eval_ir.py -I cacm_gold_std.txt result.txt

@@ -1,0 +1,113 @@
+import gmaths.*;
+
+import java.nio.*;
+import com.jogamp.common.nio.*;
+import com.jogamp.opengl.*;
+import com.jogamp.opengl.util.*;
+import com.jogamp.opengl.util.awt.*;
+import com.jogamp.opengl.util.glsl.*;
+  
+
+public class Room {
+	
+	private Mesh floor, south_wall, east_wall, west_wall, north_wall, ceiling;
+	private TwoTriangles window;
+	private Mesh[] twoTriangles;
+	
+	private float roomSize = 16, windowSize = 8;
+	
+	public Room(){
+	}
+	
+	public void initialise(GL3 gl,  Light[] lights, Camera camera){
+		
+		int[] textureId0 = TextureLibrary.loadTexture(gl, "textures/chequerboard.jpg");
+		int[] textureId1 = TextureLibrary.loadTexture(gl, "textures/City2.jpg");
+		
+		floor = new TwoTriangles(gl, textureId0);
+		south_wall = new TwoTriangles(gl, textureId0);
+		east_wall = new TwoTriangles(gl, textureId0);
+		west_wall = new TwoTriangles(gl, textureId0);
+		north_wall = new TwoTriangles(gl, textureId0);
+		ceiling = new TwoTriangles(gl, textureId0);
+		
+		window = new TwoTriangles(gl, textureId1);
+		window.windowMode(gl);
+		
+		Mesh[] tts = {floor, south_wall, east_wall, west_wall, north_wall, ceiling, window};
+		twoTriangles = tts;
+		
+		Mat4 m = new Mat4(1);
+		m = Mat4Transform.scale(roomSize,1,roomSize);
+		floor.setModelMatrix(m);
+		
+		m = Mat4.multiply(Mat4Transform.rotateAroundX(-90),Mat4Transform.scale(roomSize,1,roomSize));
+		m = Mat4.multiply(Mat4Transform.translate(0,roomSize/2,roomSize/2),m);
+		south_wall.setModelMatrix(m);
+		
+		m = Mat4.multiply(Mat4Transform.rotateAroundZ(90),Mat4Transform.scale(roomSize,1,roomSize));
+		m = Mat4.multiply(Mat4Transform.translate(roomSize/2,roomSize/2,0),m);
+		east_wall.setModelMatrix(m);
+		
+		m = Mat4.multiply(Mat4Transform.rotateAroundZ(-90),Mat4Transform.scale(roomSize,1,roomSize));
+		m = Mat4.multiply(Mat4Transform.translate(-roomSize/2,roomSize/2,0),m);
+		west_wall.setModelMatrix(m);
+		
+		m = Mat4.multiply(Mat4Transform.rotateAroundX(90),Mat4Transform.scale(roomSize,1,roomSize));
+		m = Mat4.multiply(Mat4Transform.translate(0,roomSize/2,-roomSize/2),m);
+		north_wall.setModelMatrix(m);
+		
+		m = Mat4.multiply(Mat4Transform.rotateAroundX(180),Mat4Transform.scale(roomSize,1,roomSize));
+		m = Mat4.multiply(Mat4Transform.translate(0,roomSize,0),m);
+		ceiling.setModelMatrix(m);
+		
+		m = Mat4.multiply(Mat4Transform.rotateAroundY(-90),Mat4Transform.scale(windowSize,1,windowSize));
+		m = Mat4.multiply(Mat4Transform.rotateAroundZ(90),m);
+		m = Mat4.multiply(Mat4Transform.translate(roomSize/2 - 0.2f,roomSize/2,0),m);
+		window.setModelMatrix(m);
+		
+		
+		for(Mesh tt: twoTriangles){
+			tt.setLight(lights);
+			tt.setCamera(camera);
+		}
+		
+		/*floor.setLight(light);
+		south_wall.setLight(light);
+		east_wall.setLight(light);
+		west_wall.setLight(light);
+		north_wall.setLight(light);
+		ceiling.setLight(light);
+		
+		floor.setCamera(camera);
+		south_wall.setCamera(camera);
+		east_wall.setCamera(camera);
+		west_wall.setCamera(camera);
+		north_wall.setCamera(camera);
+		ceiling.setCamera(camera);*/
+	}
+	
+	public void render(GL3 gl){
+		for(Mesh tt: twoTriangles){
+			tt.render(gl);
+		}
+		/*floor.render(gl);
+		south_wall.render(gl);
+		east_wall.render(gl);
+		west_wall.render(gl);
+		north_wall.render(gl);
+		ceiling.render(gl);*/
+	}
+	
+	public void updatePerspectiveMatrices(Mat4 perspective) {
+		for(Mesh tt: twoTriangles){
+			tt.setPerspective(perspective);
+		}
+		/*floor.setPerspective(perspective);
+		south_wall.setPerspective(perspective);
+		east_wall.setPerspective(perspective);
+		west_wall.setPerspective(perspective);
+		north_wall.setPerspective(perspective);
+		ceiling.setPerspective(perspective);*/
+	}
+}

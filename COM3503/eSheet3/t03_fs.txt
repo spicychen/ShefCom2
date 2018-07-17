@@ -1,0 +1,24 @@
+#version 330 core
+
+in vec3 ourColor;
+in vec2 ourTexCoord;
+
+out vec4 color;
+
+uniform sampler2D first_texture;
+uniform sampler2D second_texture;
+uniform sampler2D third_texture;
+uniform vec2 maomi;
+
+void main() {
+  // color = vec4(ourColor, 1.0f);
+  // color = vec4(texture(first_texture, ourTexCoord).rgb, 1.0f);
+  // color = vec4(texture(first_texture, ourTexCoord).rgb * ourColor, 1.0f);
+  // color = vec4(texture(second_texture, ourTexCoord).rgb * ourColor, 1.0f);
+  
+  color = vec4((texture(first_texture, ourTexCoord) * (1-2*maomi.x) +
+                   texture(second_texture, ourTexCoord) * maomi.x + 
+                   texture(third_texture, ourTexCoord) * maomi.x ).rgb
+               * ourColor, 1.0f);
+  
+}

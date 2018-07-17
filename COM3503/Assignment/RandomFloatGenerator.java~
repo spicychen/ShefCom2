@@ -1,0 +1,9 @@
+import java.lang.Math.*;
+
+public class RandomFloatGenerator{
+	public static void main(String[] args) {
+		for(int i=0; i<15; i++){
+			System.out.format("{%.1ff, %.1ff, %.1ff}, \n", 360.0f*Math.random(), 360.0f*Math.random(), 360.0f*Math.random());
+		}
+	}
+}

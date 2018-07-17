@@ -1,0 +1,184 @@
+import gmaths.*;
+import java.nio.*;
+import com.jogamp.common.nio.*;
+import com.jogamp.opengl.*;
+import com.jogamp.opengl.util.*;
+import com.jogamp.opengl.util.awt.*;
+import com.jogamp.opengl.util.glsl.*;
+  
+public class Arty_GLEventListener implements GLEventListener {
+  
+	
+  private static final boolean DISPLAY_SHADERS = false;
+	
+  //private JButton b=new JButton("Say Hi");
+  
+  private float aspect;
+  private Cube cube_one;
+  private Cube cube_two;
+  private Cube cube_three;
+  private Light light;
+    
+  private double startTime;
+  private int elapsedTime;
+  // The view position is not being updated over time, so the view ,marix could be calculated once and stored.
+  // For a moving camera, it would change for each frame.  
+  private Vec3 viewPosition = new Vec3(6f,9f,17f);
+  private Hand hand; 
+  
+  /* The constructor is not used to initialise anything */
+  public Arty_GLEventListener() {
+  }
+  
+  // ***************************************************
+  /*
+   * METHODS DEFINED BY GLEventListener
+   */
+
+  /* Initialisation */
+  
+  public void sayHi(){
+  	  System.out.println("Hi");
+  }
+  
+  public void init(GLAutoDrawable drawable) {   
+    GL3 gl = drawable.getGL().getGL3();
+                                    // Retrieve the gl context.
+    System.err.println("Chosen GLCapabilities: " + drawable.getChosenGLCapabilities());
+                                    // Print some diagnostic info.
+                                    // Useful, as it shows something is happening.
+    System.err.println("INIT GL IS: " + gl.getClass().getName());
+    System.err.println("GL_VENDOR: " + gl.glGetString(GL.GL_VENDOR));
+    System.err.println("GL_RENDERER: " + gl.glGetString(GL.GL_RENDERER));
+    System.err.println("GL_VERSION: " + gl.glGetString(GL.GL_VERSION));
+    gl.glClearColor(0.5f, 0.5f, 0.5f, 1.0f); 
+                                    // Set the background colour for the OpenGL context: 0.0f <= {r,g,b,alpha} <= 1.0f.
+    gl.glClearDepth(1.0f);          // Required for z buffer work in later examples. Will be explained there.
+    gl.glEnable(GL.GL_DEPTH_TEST);  // Required for z buffer work in later examples.
+    gl.glDepthFunc(GL.GL_LESS);     // Required for z buffer work in later examples.
+    gl.glFrontFace(GL.GL_CCW);    // default is 'CCW'
+    gl.glEnable(GL.GL_CULL_FACE); // default is 'not enabled'
+    gl.glCullFace(GL.GL_BACK);   // default is 'back', assuming CCW
+    
+    initialise(gl);
+    startTime = getSeconds();
+  }
+  
+  /* Called to indicate the drawing surface has been moved and/or resized  */
+  public void reshape(GLAutoDrawable drawable, int x, int y, int width, int height) {
+	GL3 gl = drawable.getGL().getGL3();
+    gl.glViewport(x, y, width, height);
+    aspect = (float)width/(float)height;
+                                    // Will be added to in later examples.
+  }
+
+  /* Draw */
+  public void display(GLAutoDrawable drawable) {
+    GL3 gl = drawable.getGL().getGL3();
+    render(gl);                     // A separate method is used for rendering the scene.
+                                    // This reduces the clutter in this method.
+  }
+
+  /* Clean up memory, if necessary */
+  public void dispose(GLAutoDrawable drawable) {
+                                    // Will be added to in later examples.
+                                    
+    GL3 gl = drawable.getGL().getGL3();
+    hand.dispose(gl);
+    //cube_one.dispose(gl);
+    //cube_two.dispose(gl);
+    //cube_three.dispose(gl);
+  }
+
+  
+  // ***************************************************
+  /* TIME
+   */ 
+  
+  private double getSeconds() {
+    return System.currentTimeMillis()/100.0;
+  }
+  
+  // ***************************************************
+  
+  public void initialise(GL3 gl) {
+  	hand = new Hand(gl);
+    //cube_one = new Cube(gl);
+    //cube_two = new Cube(gl);
+	//cube_two.setChildMesh(//cube_one);
+    //cube_three = new Cube(gl);
+	//cube_three.setChildMesh(//cube_two);
+    //cube_one.setModelMatrix();
+    //cube_one.scale(0.5f,1.5f,0.5f);
+    //cube_one.transposeModel(0.0f,0.8f,0.0f);
+    //cube_one.rotate(60.0f,true);
+    //cube_one.transposeModel(0.0f,0.8f,0.0f);
+    //cube_two.setModelMatrix();
+    //cube_two.scale(0.5f,1.5f,0.5f);
+    //cube_two.transposeModel(0.0f,1.6f,0.0f);
+    //cube_three.setModelMatrix();
+    //cube_three.scale(0.5f,1.5f,0.5f);
+    //cube_three.transposeModel(-0.5f,0.0f,0.0f);
+    light = new Light(gl);
+  }
+
+  // ***************************************************
+  /* THE SCENE
+   * Now define all the methods to handle the scene.
+   * This will be added to in later examples.
+   */
+  
+  public void render(GL3 gl) {
+    //System.out.println((int)elapsedTime);
+    gl.glClear(GL.GL_COLOR_BUFFER_BIT | GL.GL_DEPTH_BUFFER_BIT);  
+    
+    Mat4 perspective = Mat4Transform.perspective(45, aspect);
+    Mat4 view = getViewMatrix();
+    
+    
+    //updateLightColour();
+    light.setPosition(getLightPosition());  // changing light position each frame
+    light.render(gl, perspective, view);
+    //Cube index_finger = hand.getCube(2);
+    //index_finger.fullRotate((float)(elapsedTime * 50),'X');
+    int timePassed = (int)(getSeconds()-startTime);
+    if (elapsedTime != timePassed){
+    	elapsedTime = timePassed;
+    	hand.animateFingers(elapsedTime);
+    }
+    hand.render(gl, light, viewPosition, perspective, view);
+    //cube_two.rotate((float)(elapsedTime * 50), false);
+    //cube_one.render(gl, light, viewPosition, perspective, view);
+    //cube_two.render(gl, light, viewPosition, perspective, view);
+    //cube_three.render(gl, light, viewPosition, perspective, view);
+  }  
+  
+    // The light's postion is continually being changed, so needs to be calculated for each frame.
+  private Vec3 getLightPosition() {
+    double elapsedTime = getSeconds()-startTime;
+    float x = 3.0f*(float)(Math.sin(Math.toRadians(elapsedTime*5)));
+    //float x = 3.0f;
+    float y = 2.4f;
+    //float z = 3.0f;
+    float z = 3.0f*(float)(Math.cos(Math.toRadians(elapsedTime*5)));
+    return new Vec3(x,y,z);
+  }
+
+  // As the transforms do not change over time for this object, they could be stored once rather than continually being calculated
+  private Mat4 getMforCube(float ofs_x,float ofs_y,float ofs_z,float scale) {
+    Mat4 model = new Mat4(1);
+    float scl_x = 1f * scale;
+    float scl_y = 3f * scale;
+    float scl_z = 1f * scale;
+    model = Mat4.multiply(Mat4Transform.scale(scl_x,scl_y,scl_z), model);
+    model = Mat4.multiply(Mat4Transform.translate(ofs_x,ofs_y,ofs_z), model);
+    return model;
+  }
+  
+  private Mat4 getViewMatrix() {
+    Mat4 view = Mat4Transform.lookAt(viewPosition, new Vec3(0,0,0), new Vec3(0,1,0));
+    return view;
+  }
+  
+  
+}

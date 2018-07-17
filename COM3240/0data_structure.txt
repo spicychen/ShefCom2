@@ -1,0 +1,2 @@
+data to be stored: weights, counters, average dws
+data to be computed: probability of k being updated, correlation matrix, cross correlation matrix

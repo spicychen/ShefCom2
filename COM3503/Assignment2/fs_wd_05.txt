@@ -1,0 +1,86 @@
+#version 330 core
+
+in vec3 fragPos;
+in vec3 ourNormal;
+in vec2 ourTexCoord;
+
+out vec4 fragColor;
+
+uniform sampler2D first_texture;
+uniform vec3 viewPos;
+
+uniform vec4 window_position;
+
+struct Light {
+  vec3 position;
+  vec3 ambient;
+  vec3 diffuse;
+  vec3 specular;
+};
+
+uniform Light light;  
+uniform vec3 spotDir;
+
+uniform Light worldLight;
+uniform Light lamp;
+
+struct Material {
+  vec3 ambient;
+  vec3 diffuse;
+  vec3 specular;
+  float shininess;
+}; 
+  
+uniform Material material;
+
+void main() {
+  float inverse_range = 0.9f;
+  // ambient
+  vec3 ambient = (worldLight.ambient + light.ambient + lamp.ambient) * material.ambient * texture(first_texture, ourTexCoord).rgb;
+  
+  // diffuse
+  vec3 norm = normalize(ourNormal);
+  
+  vec3 lightDir = normalize(light.position - fragPos);  
+  float diff = max(dot(norm, lightDir), 0.0);
+  float spotDiff = max(dot(-spotDir, lightDir), inverse_range)-inverse_range;
+  if (spotDiff > 0)
+  	spotDiff = 2;
+  
+  vec3 worldLightDir = normalize(worldLight.position - fragPos);  
+  float worldLightDiff = max(dot(norm, worldLightDir), 0.0);
+  
+  vec3 lampDir = normalize(lamp.position - fragPos);  
+  float lampDiff = max(dot(norm, lampDir), 0.0); 
+  
+  vec3 diffuse = ((light.diffuse * diff * spotDiff) + 
+    (worldLight.diffuse * worldLightDiff) + 
+    (lamp.diffuse * lampDiff)) * 
+    material.diffuse * texture(first_texture, ourTexCoord).rgb;
+  
+  bool isWindow = ourTexCoord.x>window_position.x && ourTexCoord.x<window_position.y && ourTexCoord.y>window_position.z && ourTexCoord.y<window_position.w;
+    
+  // specular 
+  vec3 viewDir = normalize(viewPos - fragPos);
+  
+  vec3 reflectDir = reflect(-lightDir, norm);  
+  vec3 worldLightReflectDir = reflect(-worldLightDir, norm);  
+  vec3 lampReflectDir = reflect(-lampDir, norm);  
+  
+  float spec = pow(max(dot(viewDir, reflectDir), 0.0), material.shininess);
+  float spotSpec = max(dot(-spotDir, lightDir), inverse_range)-inverse_range;
+  if (spotSpec > 0)
+  	spotSpec = 1;
+  
+  float worldLightSpec = pow(max(dot(viewDir, worldLightReflectDir), 0.0), material.shininess);
+  float lampSpec = pow(max(dot(viewDir, lampReflectDir), 0.0), material.shininess);
+  
+  vec3 specular = (light.specular * spec * spotSpec + worldLight.specular * worldLightSpec + lamp.specular * lampSpec) * material.specular;
+
+  vec3 result = ambient + diffuse + specular;
+  
+  if(isWindow)
+  	fragColor = vec4(result, 0.3);
+  else
+  	fragColor = vec4(result, 1);
+}

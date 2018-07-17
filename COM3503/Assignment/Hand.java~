@@ -1,0 +1,188 @@
+import gmaths.*;
+import java.nio.*;
+import com.jogamp.common.nio.*;
+import com.jogamp.opengl.*;
+import com.jogamp.opengl.util.*;
+import com.jogamp.opengl.util.awt.*;
+import com.jogamp.opengl.util.glsl.*;
+ 
+public class Hand{
+	private int cube_size = 17;
+	private Cube[] parts;
+	
+	private float palm_size = 7.0f;
+	private float thumb_length = 3.0f;
+	private float index_length = 3.0f;
+	private float fingers_distance = 1.0f;
+	private float SCALE = 0.2f;
+	
+	private Vec3 thumb_Scale = new Vec3(3.0f*SCALE,1.0f*SCALE,1.0f*SCALE);
+	private Vec3 thumb_offset = new Vec3(0.5f,0.0f,0.0f);
+	private Vec3 thumb_position = new Vec3(half(palm_size)*SCALE,0.0f,0.0f);
+	
+	private Vec3 index_Scale = new Vec3(1.0f*SCALE,3.0f*SCALE,1.0f*SCALE);
+	private Vec3 index_offset = new Vec3(0.0f,0.5f,0.0f);
+	private Vec3 index_position = new Vec3(half(palm_size)*SCALE,(palm_size*SCALE),0.0f);
+	
+	private Vec3 middle_position = new Vec3((half(palm_size)-2*fingers_distance)*SCALE,(palm_size*SCALE),0.0f);
+	
+	private Vec3 ring_position = new Vec3((half(palm_size)-4*fingers_distance)*SCALE,(palm_size*SCALE),0.0f);
+	
+	private Vec3 little_position = new Vec3((-half(palm_size)*SCALE),(palm_size*SCALE),0.0f);
+	
+	
+	private Vec3 palm_Scale = new Vec3(palm_size*SCALE,palm_size*SCALE,1.0f*SCALE);
+	private Vec3 palm_offset = new Vec3(0.0f,0.5f,0.0f);
+	
+	private Vec3 arm_Scale = new Vec3(4.0f*SCALE,12.0f*SCALE,1.0f*SCALE);
+	private Vec3 arm_offset = new Vec3(0.0f,-0.5f,0.0f);
+	
+	private float[][] animation = {{158.7f, 59.2f, 20.9f},
+									{234.1f, 46.0f, 278.2f},
+									{30.7f, 309.5f, 329.5f},
+									{88.5f, 280.9f, 131.8f},
+									{160.4f, 210.8f, 297.1f},
+									{279.0f, 90.1f, 182.7f},
+									{48.3f, 259.1f, 73.7f},
+									{280.8f, 318.8f, 261.9f},
+									{165.0f, 109.6f, 116.9f},
+									{228.4f, 266.4f, 229.1f},
+									{143.3f, 219.9f, 325.8f},
+									{288.3f, 235.0f, 0.3f},
+									{218.8f, 240.5f, 266.3f},
+									{46.6f, 7.3f, 312.0f},
+									{101.0f, 341.0f, 210.3f}};
+	
+	public Hand(GL3 gl){
+		int[] textureId1 = TextureLibrary.loadTexture(gl, "finger2.jpg");
+		parts = new Cube[cube_size];
+		for(int i=0; i<cube_size; i++){
+			parts[i] = new Cube(gl,textureId1);
+		}
+		
+		initialise();
+
+	}
+	
+	private void initialise(){
+		
+		parts[1].addChildMesh(parts[0]);
+		parts[2].addChildMesh(parts[1]); //1e
+		
+		parts[4].addChildMesh(parts[3]);
+		parts[5].addChildMesh(parts[4]);  //2e
+		
+		parts[7].addChildMesh(parts[6]);
+		parts[8].addChildMesh(parts[7]);  //3e
+		
+		parts[10].addChildMesh(parts[9]);
+		parts[11].addChildMesh(parts[10]);  //4e
+		
+		parts[13].addChildMesh(parts[12]);
+		parts[14].addChildMesh(parts[13]);  //5e
+		
+		parts[15].addChildMesh(parts[2]);
+		parts[15].addChildMesh(parts[5]);
+		parts[15].addChildMesh(parts[8]);
+		parts[15].addChildMesh(parts[11]);
+		parts[15].addChildMesh(parts[14]);
+		
+		parts[16].addChildMesh(parts[15]);
+		
+		parts[0].setDarkerColor();
+		parts[1].setDarkerColor();
+		parts[2].setDarkerColor();
+		
+		parts[0].initialScale(thumb_Scale, thumb_offset);
+		parts[0].translateModel(new Vec3(3.2f*SCALE,0.0f,0.0f));
+		parts[1].initialScale(thumb_Scale, thumb_offset);
+		parts[1].translateModel(new Vec3(3.2f*SCALE,0.0f,0.0f));
+		parts[2].initialScale(thumb_Scale, thumb_offset);
+		parts[2].translateModel(thumb_position);
+		
+		
+		parts[3].initialScale(index_Scale, index_offset);
+		parts[3].translateModel(new Vec3(0.0f,3.2f*SCALE,0.0f));
+		parts[4].initialScale(index_Scale, index_offset);
+		parts[4].translateModel(new Vec3(0.0f,3.2f*SCALE,0.0f));
+		parts[5].initialScale(index_Scale, index_offset);
+		parts[5].translateModel(index_position);
+		
+		parts[6].initialScale(index_Scale, index_offset);
+		parts[6].translateModel(new Vec3(0.0f,3.2f*SCALE,0.0f));
+		parts[7].initialScale(index_Scale, index_offset);
+		parts[7].translateModel(new Vec3(0.0f,3.2f*SCALE,0.0f));
+		parts[8].initialScale(index_Scale, index_offset);
+		parts[8].translateModel(middle_position);
+		
+		parts[9].initialScale(index_Scale, index_offset);
+		parts[9].translateModel(new Vec3(0.0f,3.2f*SCALE,0.0f));
+		parts[10].initialScale(index_Scale, index_offset);
+		parts[10].translateModel(new Vec3(0.0f,3.2f*SCALE,0.0f));
+		parts[11].initialScale(index_Scale, index_offset);
+		parts[11].translateModel(ring_position);
+		
+		parts[12].initialScale(index_Scale, index_offset);
+		parts[12].translateModel(new Vec3(0.0f,3.2f*SCALE,0.0f));
+		parts[13].initialScale(index_Scale, index_offset);
+		parts[13].translateModel(new Vec3(0.0f,3.2f*SCALE,0.0f));
+		parts[14].initialScale(index_Scale, index_offset);
+		parts[14].translateModel(little_position);
+		
+		//2,5,8,11,14
+		
+		parts[15].initialScale(palm_Scale, palm_offset);
+		//parts[15].translateModel(new Vec3(0.0f,0.0f,-1.0f));
+		
+		parts[16].initialScale(arm_Scale, arm_offset);
+		//parts[16].translateModel(new Vec3(0.0f,-3.5f*SCALE,0.0f));
+		
+		rotateFingers();
+	}
+	
+	private void rotateFingers(){
+		float[] angles1 = {-60.0f, 0.0f,0.0f};
+		parts[3].fullRotate(angles1);
+		parts[4].fullRotate(angles1);
+		parts[5].fullRotate(angles1);
+		parts[0].fullRotate(0.0f,0.0f,60.0f);
+		parts[1].fullRotate(0.0f,-60.0f,0.0f);
+		parts[2].fullRotate(0.0f,-60.0f,0.0f);
+	}
+	
+	public void animateFingers(int time){
+		if(time >= animation.length)
+			time = time%animation.length;
+		//System.out.println(animation[time]);
+		parts[5].fullRotate(animation[time]);
+		/*parts[3].fullRotate(-60.0f,'X');
+		parts[4].fullRotate(-60.0f,'X');
+		parts[5].fullRotate(-60.0f,'X');
+		parts[0].fullRotate(60.0f,'Z');
+		parts[1].fullRotate(-60.0f,'Y');
+		parts[2].fullRotate(-60.0f,'Y');*/
+	}
+	
+	private static float half(float f){
+		return f*0.5f;
+	}
+	
+	public Cube getCube(int index){
+		return parts[index];
+	}
+	
+	public void curveThumb(){
+	}
+	
+	public void dispose(GL3 gl){
+		for(Cube p: parts){
+			p.dispose(gl);
+		}
+	}
+	
+	public void render(GL3 gl, Light light, Vec3 viewPosition, Mat4 perspective, Mat4 view){
+		for(Cube p: parts){
+			p.render(gl, light, viewPosition, perspective, view);
+		}
+	}
+}

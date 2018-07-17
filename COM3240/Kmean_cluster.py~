@@ -1,0 +1,38 @@
+import numpy as np
+from scipy.cluster.vq import vq, kmeans2, whiten
+import matplotlib.pyplot as plt
+from mpl_toolkits.mplot3d import Axes3D
+from cycler import cycler
+
+FinalData = np.genfromtxt('PCA_FinalData_03.csv',delimiter=',')
+
+sampleFinalData = FinalData[25000:35000]
+
+whitened_data = whiten(sampleFinalData)
+codes = 10
+codebook, labels = kmeans2(whitened_data, codes)
+
+fig = plt.figure(figsize = (10,10))
+ax = fig.gca(projection = '3d')
+
+ax.set_prop_cycle(cycler('color',['blue', 'orange', 'green', 'red', 'purple', 'brown', 'pink', 'gray', 'olive', 'cyan']))
+
+#print(len(labels))
+x,y,z = 2,3,4
+for i in range(codes):
+	predicted_label = (labels==i)
+	xcomp = sampleFinalData[predicted_label,x].flatten()
+	ycomp = sampleFinalData[predicted_label,y].flatten()
+	zcomp = sampleFinalData[predicted_label,z].flatten()
+	
+	ax.plot(xcomp,ycomp,zcomp,'.')
+	
+ax.set_title('PC'+str(x+1)+',PC'+str(y+1)+' and PC'+str(z+1))
+ax.set_xlabel(str(x+1)+'PC')
+ax.set_ylabel(str(y+1)+'PC')
+ax.set_zlabel(str(z+1)+'PC')
+
+win = plt.gcf()
+win.canvas.set_window_title('PC'+str(x+1)+'_PC'+str(y+1)+'_PC'+str(z+1))
+
+plt.show()

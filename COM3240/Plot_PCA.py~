@@ -1,0 +1,49 @@
+import numpy as np
+import matplotlib.pyplot as plt
+from mpl_toolkits.mplot3d import Axes3D
+import gzip
+from cycler import cycler
+#"""
+train_labels_file = gzip.GzipFile('train-labels-idx1-ubyte.gz','rb')
+train_labels_data = train_labels_file.read()
+train_labels = list(train_labels_data[8:])
+
+train_labels_sample = np.array(train_labels)
+#print(train_labels_sample)
+
+
+
+zeroData = (train_labels_sample==0)
+#print(zeroData)
+twoData = (train_labels_sample==2)
+fourData = (train_labels_sample==4)
+sevenData = (train_labels_sample==7)
+eightData = (train_labels_sample==8)
+print(sum(zeroData),sum(twoData),sum(fourData))
+labeledData = [(zeroData,'r.'), (twoData,'g.'), (fourData,'m.'),
+	(sevenData,'y.'), (eightData,'b.')]
+#"""
+"""
+FinalData = np.genfromtxt('PCA_FinalData_03.csv',delimiter=',')
+
+fig = plt.figure(figsize = (10,10))
+ax = fig.gca(projection = '3d')
+x,y,z = 0,2,3
+#for ld,co in labeledData:
+xcomp = FinalData[:,x].flatten()
+ycomp = FinalData[:,y].flatten()
+#	if co == 'r.':
+#		print(ycomp)
+zcomp = FinalData[:,z].flatten()
+ax.set_prop_cycle(cycler('color',['r','b','y','g','k','c','m']))
+plotLen = 10000
+for i in range(6):
+	ax.plot(xcomp[i*plotLen:(i+1)*plotLen],ycomp[i*plotLen:(i+1)*plotLen],zcomp[i*plotLen:(i+1)*plotLen],'.')
+	
+ax.set_xlabel(str(x+1)+'PC')
+ax.set_ylabel(str(y+1)+'PC')
+ax.set_zlabel(str(z+1)+'PC')
+
+
+plt.show()
+#"""
